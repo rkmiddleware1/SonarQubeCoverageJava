@@ -1,0 +1,25 @@
+
+name: build JAVA application
+on: # multiple triggers when this workflow can run
+ workflow_dispatch:
+ push:
+   branches:
+     - master
+ pull_request:
+   branches:
+     - master
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Clone the repo
+      uses: actions/checkout@v6
+    - name: Install java on runner
+      uses: actions/setup-java@v5
+      with:
+        distribution: 'temurin'
+        java-version: '17'
+    - name: build java code
+      run: mvn clean package
+ 
+
