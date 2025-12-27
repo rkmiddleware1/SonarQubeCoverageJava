@@ -21,5 +21,10 @@ jobs:
         java-version: '17'
     - name: build java code
       run: mvn clean package
+    - name: upload artifact from github runner to Github repo
+      uses: actions/upload-artifact@v4
+  with:
+    name: wicket-pwnedpasswords-validator-2.0.1
+	   path: /home/runner/work/SonarQubeCoverageJava/SonarQubeCoverageJava/target/wicket-pwnedpasswords-validator-2.0.1-SNAPSHOT.jar
  
 
